@@ -33,20 +33,33 @@ function renderAllSongs(allSongs) {
     var songName = songDetail.trackName;
     // console.log(songName);
     var card = document.createElement("div");
+    card.className = "card col-lg-5";
+    // card.style.width = "30%";
 
     var image = document.createElement("img");
-    image.src = songDetail.artworkUrl60;
+    image.src = songDetail.artworkUrl100;
+    image.className = "card-img-top";
+
+    var cardBody = document.createElement("div");
+    cardBody.className = "card-body";
 
     var newTitle = document.createElement("h5");
-    newTitle.innerText = `${index + 1}.) ${songName}`;
+    newTitle.innerText = `${songName}`;//${index + 1}.)
+    newTitle.className = "card-title";
 
     var audio = document.createElement("audio");
-    audio.src=songDetail.previewUrl;
+    audio.src = songDetail.previewUrl;
     audio.controls = true;
 
+    cardBody.appendChild(newTitle);
+    cardBody.appendChild(audio);
+
     card.appendChild(image);
-    card.appendChild(newTitle);
-    card.appendChild(audio);
+    card.appendChild(cardBody);
+
+    // card.appendChild(image);
+    // card.appendChild(newTitle);
+    // card.appendChild(audio);
 
     outputDiv.appendChild(card);
   });
