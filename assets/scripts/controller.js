@@ -2,6 +2,14 @@ window.addEventListener("load", bindEvents);
 
 function bindEvents() {
   document.querySelector("#search").addEventListener("click", searchBySinger);
+  
+  document.querySelector("#singer").addEventListener("keyup", (evt) => {
+    if (evt.keyCode === 13) {
+      searchBySinger();
+    }
+  });
+  
+  document.querySelector("#singer").focus();
 }
 
 function searchBySinger() {
@@ -44,7 +52,7 @@ function renderAllSongs(allSongs) {
     cardBody.className = "card-body";
 
     var newTitle = document.createElement("h5");
-    newTitle.innerText = `${songName}`;//${index + 1}.)
+    newTitle.innerText = `${songName}`; //${index + 1}.)
     newTitle.className = "card-title";
 
     var audio = document.createElement("audio");
