@@ -2,13 +2,13 @@ window.addEventListener("load", bindEvents);
 
 function bindEvents() {
   document.querySelector("#search").addEventListener("click", searchBySinger);
-  
+
   document.querySelector("#singer").addEventListener("keyup", (evt) => {
     if (evt.keyCode === 13) {
       searchBySinger();
     }
   });
-  
+
   document.querySelector("#singer").focus();
 }
 
@@ -22,7 +22,9 @@ function searchBySinger() {
     outputDiv.replaceChildren();
 
     document.querySelector("#loaderImage").classList.remove("hide");
-    getSongBySinger(singerName);
+    // getSongBySinger(singerName);
+    // getSongBySingerNameFetch(singerName);
+    getSongBySingerFetchAwait(singerName);
   }
 }
 
@@ -47,6 +49,7 @@ function renderAllSongs(allSongs) {
     var image = document.createElement("img");
     image.src = songDetail.artworkUrl100;
     image.className = "card-img-top";
+    image.alt = "songImage";
 
     var cardBody = document.createElement("div");
     cardBody.className = "card-body";
