@@ -66,3 +66,12 @@ function getSongBySinger(singerName) {
   //   window.ActiveXObject()//old ie browsers
   // }
 }
+
+async function random(){
+  const url="https://www.reddit.com/r/india.json"
+  const reponse = await fetch(url);
+    const data = await reponse.json();
+    
+    console.log(data)
+}
+random();

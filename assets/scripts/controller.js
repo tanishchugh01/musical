@@ -75,3 +75,5 @@ function renderAllSongs(allSongs) {
     outputDiv.appendChild(card);
   });
 }
+
+random();
